@@ -12,27 +12,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
       - uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Install Playwright browsers (Chromium, Firefox, WebKit)
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 5️⃣ Run Playwright tests (WebKit project only)
-      - name: Run WebKit tests
+      - name: Run WebKit tests (headless in CI)
         run: npx playwright test --project=webkit --reporter=line
 
-      # 6️⃣ Upload HTML and Allure reports
       - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4

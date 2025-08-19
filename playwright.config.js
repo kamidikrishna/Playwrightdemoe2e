@@ -17,20 +17,20 @@ const config = defineConfig({
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
-        baseURL: 'https://rahulshettyacademy.com/loginpagePractise/',
-        headless: false,
+        headless: process.env.CI ? true : false, // 👈 headless in CI, headed locally
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
+        baseURL: 'https://rahulshettyacademy.com/loginpagePractise/',
       },
     },
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        baseURL: 'https://rahulshettyacademy.com/loginpagePractise/',
-        headless: false,
+        headless: false, // always headed locally
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
+        baseURL: 'https://rahulshettyacademy.com/loginpagePractise/',
       },
     },
   ],
