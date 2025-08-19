@@ -1,0 +1,17 @@
+{
+  "name": "playwright_demo",
+  "version": "1.0.0",
+  "description": "Playwright framework with POM for rahulshettyacademy demo site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.3.0",
+    "allure-playwright": "^3.3.3"
+  }
+}
